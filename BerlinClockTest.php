@@ -13,5 +13,10 @@ class BerlinClockTest extends TestCase
         $this->berlinClock = new BerlinClock();
     }
 
+    public function test_convert_given0Minutes_shouldReturn0Light(){
+        $actual = $this->berlinClock->minutes();
+
+        $this->assertEquals("0",$actual);
+    }
 
 }
