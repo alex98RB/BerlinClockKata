@@ -13,12 +13,18 @@ class BerlinClockTest extends TestCase
         $this->berlinClock = new BerlinClock();
     }
 
-    public function test_convert_given0Minutes_shouldReturn00Light(){
+    public function test_convert_given00Minutes_shouldReturn00Light(){
         $actual = $this->berlinClock->minutes();
 
         $this->assertEquals("00",$actual);
     }
 
+    public function test_convert_given01Minutes_shouldReturn01Light()
+    {
+        $actual = $this->berlinClock->minutes();
+
+        $this->assetEquals("01", $actual);
+    }
 
 
 }
