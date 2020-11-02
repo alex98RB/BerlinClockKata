@@ -3,6 +3,8 @@ class BerlinClock{
 
     public function minutes(){
         $minute = date("i");
+
+        return $minute;
     }
 
 
