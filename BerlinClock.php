@@ -29,8 +29,8 @@ class BerlinClock{
         if($count == 7) return "OOOOIIIIIII";
         if($count == 8) return "OOOIIIIIIII";
         if($count == 9) return "OOIIIIIIIII";
-        if($count == 10) return "OIIIIIIIII";
-        if($count == 11) return "IIIIIIIIII";
+        if($count == 10) return "OIIIIIIIIII";
+        if($count == 11) return "IIIIIIIIIII";
 
     }
 
