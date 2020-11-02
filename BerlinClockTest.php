@@ -37,6 +37,10 @@ class BerlinClockTest extends TestCase
         $this->assertEquals("03", $actual);
     }
 
+    public function test_convert_given04Minutes_shouldReturn04Light(){
+        $actual = $this->berlinClock->minutes();
 
+        $this->assertEquals("04", $actual);
+    }
 
 }
