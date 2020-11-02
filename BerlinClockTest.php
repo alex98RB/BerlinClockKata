@@ -14,33 +14,33 @@ class BerlinClockTest extends TestCase
     }
 
     public function test_convert_given00Minutes_shouldReturn00Light(){
-        $actual = $this->berlinClock->minutes();
+        $actual = $this->berlinClock->minutes('00');
 
-        $this->assertEquals("00",$actual);
+        $this->assertEquals("OOOO",$actual);
     }
 
     public function test_convert_given01Minutes_shouldReturn01Light(){
-        $actual = $this->berlinClock->minutes();
+        $actual = $this->berlinClock->minutes('01');
 
-        $this->assetEquals("01", $actual);
+        $this->assertEquals("OOOI", $actual);
     }
 
     public function test_convert_given02Minutes_shouldReturn02Light(){
-        $actual = $this->berlinClock->minutes();
+        $actual = $this->berlinClock->minutes('02');
 
-        $this->assertEquals("02", $actual);
+        $this->assertEquals("OOII", $actual);
     }
 
     public function test_convert_given03Minutes_shouldReturn03Light(){
-        $actual = $this->berlinClock->minutes();
+        $actual = $this->berlinClock->minutes('03');
 
-        $this->assertEquals("03", $actual);
+        $this->assertEquals("OIII", $actual);
     }
 
     public function test_convert_given04Minutes_shouldReturn04Light(){
-        $actual = $this->berlinClock->minutes();
+        $actual = $this->berlinClock->minutes('04');
 
-        $this->assertEquals("04", $actual);
+        $this->assertEquals("IIII", $actual);
     }
 
 }
