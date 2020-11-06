@@ -7,6 +7,11 @@ class BerlinClock{
 
     }
 
+    public function secondes(String $string){
+        if($string%2 == 0) return "I";
+        else return "O";
+    }
+
     public function minutes_per_05(String $string){
         $count = $this->CountDivisiblePer5($string);
         if($count == 0) return "OOOOOOOOOOO";
