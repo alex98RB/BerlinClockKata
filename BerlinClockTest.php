@@ -19,6 +19,12 @@ class BerlinClockTest extends TestCase
         $this->assertEquals('IOOOOOOOOOOOOOOOOOOOOOOO',$actual);
     }
 
+    public function test_convert_23Hours_59Minutes_59Secondes_shouldReturn0IIIIIIIIIIIIIIIIIIIIIII(){
+        $actual = $this->berlinClock->now('23','59','59');
+
+        $this->assertEquals('OIIIIOIIIIIIIIIIIIIIIIII',$actual);
+    }
+
     public function test_convert_givenEvenSecondes_souldReturnILight(){
         $actual = $this->berlinClock->secondes('00');
 
