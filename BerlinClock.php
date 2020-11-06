@@ -30,6 +30,15 @@ class BerlinClock{
 
     }
 
+    public function hours_per_05(String $string){
+        $count = $this->CountDivisiblePer5($string);
+        if($count == 0) return "OOOO";
+        if($count == 1) return "OOOI";
+        if($count == 2) return "OOII";
+        if($count == 3) return "OIII";
+        if($count == 4) return "IIII";
+    }
+
     public function take_only_last_time_digit(String $string){
         if(substr($string, 1) == 0 || (substr($string, 1) == 5)) return "OOOO";
         if(substr($string, 1) == 1 || (substr($string, 1) == 6)) return "OOOI";
