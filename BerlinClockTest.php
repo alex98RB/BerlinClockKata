@@ -133,4 +133,10 @@ class BerlinClockTest extends TestCase
         $this->assertEquals('OIII',$actual);
     }
 
+    public function test_convert_given04Hours_shouldReturn04_ThirdLineLight(){
+        $actual = $this->berlinClock->hours('04');
+
+        $this->assertEquals('IIII',$actual);
+    }
+
 }
