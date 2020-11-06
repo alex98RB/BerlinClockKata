@@ -19,7 +19,7 @@ class BerlinClockTest extends TestCase
     public function test_convert_givenNowTime_shouldReturnSameAsNow(){
         $actual = $this->berlinClock->now();
 
-        $this->assertEquals($this->berlinClock->berlin_clock(hours,minutes,secondes),$actual);
+        $this->assertEquals($this->getBerlin_clocks(hours,minutes,secondes),$actual);
     }
 
     public function test_convert_givenEvenSecondes_souldReturnILight(){
@@ -161,43 +161,43 @@ class BerlinClockTest extends TestCase
     }
 
     public function test_convert_given00Hours_shouldReturn00_FourthLineLight(){
-        $actual = $this->berlinClock->hours_per_05('00');
+        $actual = $this->getHours_per_05('00');
 
         $this->assertEquals('OOOO',$actual);
     }
 
     public function test_convert_given05Hours_shouldReturn01_FourthLineLight(){
-        $actual = $this->berlinClock->hours_per_05('05');
+        $actual = $this->getHours_per_05('05');
 
         $this->assertEquals('OOOI',$actual);
     }
 
     public function test_convert_given10Hours_shouldReturn02_FourthLineLight(){
-        $actual = $this->berlinClock->hours_per_05('10');
+        $actual = $this->getHours_per_05('10');
 
         $this->assertEquals('OOII',$actual);
     }
 
     public function test_convert_given15Hours_shouldReturn03_FourthLineLight(){
-        $actual = $this->berlinClock->hours_per_05('15');
+        $actual = $this->getHours_per_05('15');
 
         $this->assertEquals('OIII',$actual);
     }
 
     public function test_convert_given20Hours_shouldReturn04_FourthLineLight(){
-        $actual = $this->berlinClock->hours_per_05('20');
+        $actual = $this->getHours_per_05('20');
 
         $this->assertEquals('IIII',$actual);
     }
 
     public function test_convert_00Hours_00Minutes_00Secondes_shouldReturnI00000000000000000000000(){
-        $actual = $this->berlinClock->berlin_clock('00','00','00');
+        $actual = $this->getBerlin_clocks('00','00','00');
 
         $this->assertEquals('IOOOOOOOOOOOOOOOOOOOOOOO',$actual);
     }
 
     public function test_convert_23Hours_59Minutes_59Secondes_shouldReturn0IIIIIIIIIIIIIIIIIIIIIII(){
-        $actual = $this->berlinClock->berlin_clock('23','59','59');
+        $actual = $this->getBerlin_clocks('23','59','59');
 
         $this->assertEquals('OIIIIOIIIIIIIIIIIIIIIIII',$actual);
     }
@@ -220,6 +220,16 @@ class BerlinClockTest extends TestCase
     private function getHours(String $string): string
     {
         return $this->berlinClock->hours($string);
+    }
+
+    private function getHours_per_05(String $string): string
+    {
+        return $this->berlinClock->hours_per_05($string);
+    }
+
+    private function getBerlin_clocks(String $string1, String $string2, String $string3): string
+    {
+        return $this->berlinClock->berlin_clock($string1, $string2, $string3);
     }
 
 }
