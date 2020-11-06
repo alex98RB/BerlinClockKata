@@ -2,6 +2,9 @@
 
 require "BerlinClock.php";
 use PHPUnit\Framework\TestCase;
+define("hours",date("H"));
+define("minutes",date("i"));
+define("secondes",date("s"));
 
 class BerlinClockTest extends TestCase
 {
@@ -13,16 +16,10 @@ class BerlinClockTest extends TestCase
         $this->berlinClock = new BerlinClock();
     }
 
-    public function test_convert_00Hours_00Minutes_00Secondes_shouldReturnI00000000000000000000000(){
-        $actual = $this->berlinClock->now('00','00','00');
+    public function test_convert_givenNowTime_shouldReturnSameAsNow(){
+        $actual = $this->berlinClock->now();
 
-        $this->assertEquals('IOOOOOOOOOOOOOOOOOOOOOOO',$actual);
-    }
-
-    public function test_convert_23Hours_59Minutes_59Secondes_shouldReturn0IIIIIIIIIIIIIIIIIIIIIII(){
-        $actual = $this->berlinClock->now('23','59','59');
-
-        $this->assertEquals('OIIIIOIIIIIIIIIIIIIIIIII',$actual);
+        $this->assertEquals($this->berlinClock->berlin_clock(hours,minutes,secondes),$actual);
     }
 
     public function test_convert_givenEvenSecondes_souldReturnILight(){
@@ -191,6 +188,18 @@ class BerlinClockTest extends TestCase
         $actual = $this->berlinClock->hours_per_05('20');
 
         $this->assertEquals('IIII',$actual);
+    }
+
+    public function test_convert_00Hours_00Minutes_00Secondes_shouldReturnI00000000000000000000000(){
+        $actual = $this->berlinClock->berlin_clock('00','00','00');
+
+        $this->assertEquals('IOOOOOOOOOOOOOOOOOOOOOOO',$actual);
+    }
+
+    public function test_convert_23Hours_59Minutes_59Secondes_shouldReturn0IIIIIIIIIIIIIIIIIIIIIII(){
+        $actual = $this->berlinClock->berlin_clock('23','59','59');
+
+        $this->assertEquals('OIIIIOIIIIIIIIIIIIIIIIII',$actual);
     }
 
 }
