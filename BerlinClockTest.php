@@ -151,4 +151,10 @@ class BerlinClockTest extends TestCase
         $this->assertEquals('OOOI',$actual);
     }
 
+    public function test_convert_given10Hours_shouldReturn02_FourthLineLight(){
+        $actual = $this->berlinClock->hours_per_05('10');
+
+        $this->assertEquals('OOII',$actual);
+    }
+
 }
