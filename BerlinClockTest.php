@@ -29,13 +29,13 @@ class BerlinClockTest extends TestCase
     }
 
     public function test_convert_givenOddSecondes_shouldReturnOLight(){
-        $actual = $this->berlinClock->secondes('01');
+        $actual = $this->getSecondes('01');
 
         $this->assertEquals("O",$actual);
     }
 
     public function test_convert_given00Minutes_shouldReturn00Light(){
-        $actual = $this->berlinClock->minutes('00');
+        $actual = $this->getMinutes('00');
 
         $this->assertEquals("OOOO",$actual);
     }
@@ -202,9 +202,14 @@ class BerlinClockTest extends TestCase
         $this->assertEquals('OIIIIOIIIIIIIIIIIIIIIIII',$actual);
     }
 
-    private function getSecondes(string $string): string
+    private function getSecondes(String $string): string
     {
         return $this->berlinClock->secondes($string);
+    }
+
+    private function getMinutes(String $string): string
+    {
+        return $this->berlinClock->minutes($string);
     }
 
 }
