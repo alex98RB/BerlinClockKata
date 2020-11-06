@@ -25,7 +25,7 @@ class BerlinClock{
 
     public function now(){
 
-        echo "L\'heure actuelle est : " . $this->now_hours . ":" . $this->now_minutes . ":" . $this->now_secondes . "\n";
+        echo "L'heure actuelle est : " . $this->now_hours . ":" . $this->now_minutes . ":" . $this->now_secondes . "\n";
 
         echo "     " . $this->secondes($this->now_secondes) . "\n";
         echo "   " . $this->hours_per_05($this->now_hours) . "\n";
@@ -48,7 +48,7 @@ class BerlinClock{
     }
 
     public function secondes(String $string){
-        if($string%2 == 0) return "I";
+        if((int)$string%2 == 0) return "I";
         else return "O";
     }
 

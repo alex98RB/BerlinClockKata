@@ -23,7 +23,7 @@ class BerlinClockTest extends TestCase
     }
 
     public function test_convert_givenEvenSecondes_souldReturnILight(){
-        $actual = $this->berlinClock->secondes('00');
+        $actual = $this->getSecondes('OO');
 
         $this->assertEquals("I",$actual);
     }
@@ -200,6 +200,11 @@ class BerlinClockTest extends TestCase
         $actual = $this->berlinClock->berlin_clock('23','59','59');
 
         $this->assertEquals('OIIIIOIIIIIIIIIIIIIIIIII',$actual);
+    }
+
+    private function getSecondes(string $string): string
+    {
+        return $this->berlinClock->secondes($string);
     }
 
 }
