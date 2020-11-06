@@ -1,6 +1,40 @@
 <?php
 class BerlinClock{
 
+    private $now_secondes;
+    private $now_minutes;
+    private $now_hours;
+
+    public function __construct(){
+
+        $this->now_secondes = date("s");
+        $this->now_minutes = date("i");
+        $this->now_hours = date("H");
+
+    }
+
+    public function run() {
+
+        echo "L\'heure actuelle est : " . $this->now_hours . ":" . $this->now_minutes . ":" . $this->now_secondes . "\n";
+
+        echo "     " . $this->secondes($this->now_secondes) . "\n";
+        echo "   " . $this->hours_per_05($this->now_hours) . "\n";
+        echo "   " . $this->hours($this->now_hours) . "\n";
+        echo $this->minutes_per_05($this->now_minutes) . "\n";
+        echo "   " . $this->minutes($this->now_minutes) . "\n";
+
+    }
+
+    public function now(String $string1, String $string2, String $string3){
+
+        return $this->secondes($string3) .
+            $this->hours_per_05($string1) .
+            $this->hours($string1) .
+            $this->minutes_per_05($string2) .
+            $this->minutes($string2);
+
+    }
+
     public function minutes(String $string){
 
         return $this->take_only_last_time_digit($string);
