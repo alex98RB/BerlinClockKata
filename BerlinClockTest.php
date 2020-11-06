@@ -91,4 +91,10 @@ class BerlinClockTest extends TestCase
         $this->assertEquals('OOOIIIIIIII',$actual);
     }
 
+    public function test_convert_given45Minutes_shouldReturn09_SecondLineLight(){
+        $actual = $this->berlinClock->minutes_per_05('45');
+
+        $this->assertEquals('OOIIIIIIIII',$actual);
+    }
+
 }
