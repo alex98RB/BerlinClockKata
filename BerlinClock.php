@@ -2,18 +2,8 @@
 class BerlinClock{
 
     public function minutes(String $string){
-        $minute = date("i");
 
-        if(substr($string, 1) == 0 || (substr($string, 1) == 5)) return "OOOO";
-        if(substr($string, 1) == 1 || (substr($string, 1) == 6)) return "OOOI";
-        if(substr($string, 1) == 2 || (substr($string, 1) == 7)) return "OOII";
-        if(substr($string, 1) == 3 || (substr($string, 1) == 8)) return "OIII";
-        if(substr($string, 1) == 4 || (substr($string, 1) == 9)) return "IIII";
-
-        /*while ($minute >= 5){
-            $minute = $minute-5;
-        }
-        return $minute;*/
+        return $this->take_only_last_time_digit($string);
 
     }
 
@@ -32,6 +22,20 @@ class BerlinClock{
         if($count == 10) return "OIIIIIIIIII";
         if($count == 11) return "IIIIIIIIIII";
 
+    }
+
+    public function hours(String $string){
+
+        return $this->take_only_last_time_digit($string);
+
+    }
+
+    public function take_only_last_time_digit(String $string){
+        if(substr($string, 1) == 0 || (substr($string, 1) == 5)) return "OOOO";
+        if(substr($string, 1) == 1 || (substr($string, 1) == 6)) return "OOOI";
+        if(substr($string, 1) == 2 || (substr($string, 1) == 7)) return "OOII";
+        if(substr($string, 1) == 3 || (substr($string, 1) == 8)) return "OIII";
+        if(substr($string, 1) == 4 || (substr($string, 1) == 9)) return "IIII";
     }
 
     public function CountDivisiblePer5($int): string{
